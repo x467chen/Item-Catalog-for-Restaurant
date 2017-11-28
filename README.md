@@ -24,7 +24,7 @@ git clone https://github.com/x467chen/Item-Catalog-for-Restaurant
 ``` xml
 vagrant up
 vagrant ssh
-cd /vagrant/
+cd /vagrant
 ```
 4.Add some data into database by the following cmd:
 ``` xml
@@ -45,4 +45,4 @@ python project.py
 
 8.If you want yourself OAuth 2.0<br />
 Go to [Google Official Website](http://console.developers.google.com) to set up a client id and client secret.<br />
-You can also do the same implenment from other third party OAuth authentication such as [Facebook](https://developers.facebook.com/)
+You can also do the same implenment from other third party OAuth authentication such as [Facebook](https://developers.facebook.com/).
