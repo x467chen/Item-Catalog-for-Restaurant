@@ -45,5 +45,5 @@ python project.py
 Go to [Google Official Website](http://console.developers.google.com) to set up a client id and client secret.<br />
 You can also do the same implenment from other third party OAuth authentication such as [Facebook](https://developers.facebook.com/).
 
-## See Final Screenshoot iN DEMO
+## See Final Screenshoot in DEMO
 ![Alt text](https://github.com/x467chen/Item-Catalog-for-Restaurant/blob/master/Login.jpg "Optional title")
