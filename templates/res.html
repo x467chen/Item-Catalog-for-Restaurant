@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<title>HOME</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}"> -->
+
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90%;
+    background-image: url({{ url_for('static', filename='onepage_restaurant.jpg') }})
+}
+body {
+    background-image: url({{ url_for('static', filename='onepage_restaurant.jpg') }})
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="{{url_for('showRestaurants')}}" class="w3-bar-item w3-button">HOME</a>
+    <a href="{{url_for('newRestaurant')}}" class="w3-bar-item w3-button">
+        Add Restaurant</a> 
+            
+    {%if 'username' not in session %}
+      <a href="{{url_for('showLogin')}}" class="w3-bar-item w3-button w3-display-topright">Click Here to Login </a>
+      {% else %}
+      <a href="{{url_for('disconnect')}}" class="w3-bar-item w3-button w3-display-topright">Logout</a>
+    {% endif %} 
+    <br>
+    {% with messages = get_flashed_messages() %}
+      <div class="w3-panel w3-pale-green">
+        {% if messages %}  
+          <h3>Successful!</h3>       
+            <ul>
+            {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+      </div> 
+    {% endwith %}   
+  </div>  
+</div>
+  
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <!-- <div class="w3-display-bottomleft w3-padding">
+    <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
+  </div> -->
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">
+      <b>Show All Restaurant</b>
+    </span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>Show All Restaurant</b></span>
+    <p><a href="#menu" class="w3-button w3-xxlarge w3-black">See More Info</a></p>
+  </div>
+</header>
+
+
+<div class="w3-center">
+  <br>
+  <div class="w3-row-padding">
+      {% for restaurant in restaurants %}
+      <div class="w3-third">
+          <img src="{{url_for('static', filename='1.jpg')}}" class="w3-bar-item" style="width:50%">
+          <div class="w3-bar-item">
+          <a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}" class="w3-grey">
+          <div class="w3-large w3-blue-grey"><h2>{{restaurant.name}}</div></h2>
+          <br>
+          </a>              
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+<div class="w3-blue-grey text-center text-white">
+    <div class="container">
+      <h3>Copyright &copy; Xuanqi Chen 2017</h3>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<title>All Item</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}"> -->
+
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90%;
+    background-image: url({{ url_for('static', filename='onepage_restaurant.jpg') }})
+}
+</style>
+<body>
+<!-- Navbar-->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="{{url_for('showRestaurants')}}" class="w3-bar-item w3-button">HOME</a> 
+    <a href="{{url_for('showMenu', restaurant_id = restaurant_id)}}" class="w3-bar-item w3-button">Back to Menu</a> 
+
+    {%if 'username' not in session %}
+      <a href="{{url_for('showLogin')}}" class="w3-bar-item w3-button w3-display-topright">Click Here to Login </a>
+      {% else %}
+      <a href="{{url_for('disconnect')}}" class="w3-bar-item w3-button w3-display-topright">Logout</a>
+    {% endif %}    
+  </div>  
+</div>
+  
+<!-- Header -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-middle ">    
+    <div class="w3-row w3-green">
+    <div class="w3-col" style="width:25%"><p></p></div>
+    <div class="w3-col" style="width:50%">
+    
+    <form action="#" method = "post">
+      <div class="form-group w3-left">
+          <fieldset>
+            <legend class="w3-green"><h2><b>New Product:</b></h2></legend>
+
+            <label for="name" >Item Name:</label>
+            <input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the course">
+
+          <label for="description">Description:</label>
+          <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the course"></textarea>
+
+          <label for="price">Price:</label>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $">
+          </div>
+
+              <label for="course" >Course:</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="course" id="course1" value="Appetizer">Appetizer
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="course" id="course2" value="Entree">Entree
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="course" id="course3" value="Dessert">Dessert
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="course" id="course4" value="Beverage">Beverage
+                </label>
+              </div>
+          </fieldset>
+          <div class="w3-center">
+          <button type="submit" class="btn btn-default w3-pale-green" id="submit">
+          <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp&nbspCreate&nbsp&nbsp<span class="glyphicon glyphicon-cutlery blue" aria-hidden="true"></span></button>
+          </div>
+        </div>
+    </form>
+    </div>
+    <div class="w3-col" style="width:25%"><p></p></div>
+    </div>
+  </div>
+</header>
+<div class="w3-pale-green text-center text-white">
+  <div class="container">
+    <h3>Copyright &copy; Xuanqi Chen 2017</h3>
+    <br><br>
+  </div>
+</div>
+</body>
+</html>
