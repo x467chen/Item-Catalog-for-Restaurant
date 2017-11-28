@@ -14,8 +14,6 @@ Through this project, I am more familiar with developing a RESTful web applicati
 Install Python2.7<br />
 Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1).<br />
 
-
-
 2.Clone the github repository into a vagrant environment using the cmd:
 ``` xml
 git clone https://github.com/x467chen/Item-Catalog-for-Restaurant
@@ -47,4 +45,5 @@ python project.py
 Go to [Google Official Website](http://console.developers.google.com) to set up a client id and client secret.<br />
 You can also do the same implenment from other third party OAuth authentication such as [Facebook](https://developers.facebook.com/).
 
-
+## See Final Screenshoot iN DEMO
+![Alt text](https://github.com/x467chen/Item-Catalog-for-Restaurant/blob/master/DEMO/Login.png"Optional title")
